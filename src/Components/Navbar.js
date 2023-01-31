@@ -1,5 +1,6 @@
 // import PropTypes from "prop-types";
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export class Navbar extends Component {
 	static propTypes = {};
@@ -7,11 +8,9 @@ export class Navbar extends Component {
 	render() {
 		return (
 			<>
-				<nav className="navbar navbar-expand-lg bg-body-tertiary">
+				<nav className="navbar navbar-expand-lg bg-dark ">
 					<div className="container-fluid">
-						<h1 className="navbar-brand" href="#">
-							NewsHUB
-						</h1>
+						<h1 className="navbar-brand  text-white">NewsHUB</h1>
 						<button
 							className="navbar-toggler"
 							type="button"
@@ -27,14 +26,44 @@ export class Navbar extends Component {
 							id="navbarSupportedContent">
 							<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 								<li className="nav-item">
-									<a className="nav-link active" aria-current="page" href="/">
+									<Link
+										className="nav-link  text-white"
+										aria-current="page"
+										to="/">
 										Home
-									</a>
+									</Link>
+								</li>
+								
+								<li className="nav-item">
+									<Link className="nav-link text-white" to="Business">
+										Business
+									</Link>
 								</li>
 								<li className="nav-item">
-									<a className="nav-link" href="/">
-										Link
-									</a>
+									<Link className="nav-link text-white" to="Entertainment">
+										Entertainment
+									</Link>
+								</li>
+								
+								<li className="nav-item">
+									<Link className="nav-link text-white" to="Health">
+										Health
+									</Link>
+								</li>
+								<li className="nav-item">
+									<Link className="nav-link text-white" to="Science">
+										Science
+									</Link>
+								</li>
+								<li className="nav-item">
+									<Link className="nav-link text-white" to="Sports">
+										Sports
+									</Link>
+								</li>
+								<li className="nav-item">
+									<Link className="nav-link text-white" to="Technology">
+										Technology
+									</Link>
 								</li>
 							</ul>
 						</div>
