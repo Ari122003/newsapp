@@ -87,7 +87,7 @@ export class News extends Component {
 					total: result.totalResults,
 					loading: false,
 				});
-			});
+			})
 	}
 
 	render() {
@@ -107,6 +107,7 @@ export class News extends Component {
 							return (
 								<div className="col-md-4 " key={item.url}>
 									<Newsitem
+									   
 										title={item.title ? item.title : "Title unavialable"}
 										description={
 											item.description !== (null || "")
@@ -115,6 +116,9 @@ export class News extends Component {
 										}
 										image={item.urlToImage}
 										details={item.url}
+										author={item.author?item.author:"...."}
+										date={item.publishedAt?item.publishedAt:"...."}
+										source={item.source.name}
 									/>
 								</div>
 							);
