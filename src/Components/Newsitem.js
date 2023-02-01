@@ -12,10 +12,10 @@ export class Newsitem extends Component {
 				<div className="card" >
 					<img src={image!==(null||""||undefined)?image:logo} className="card-img-top" alt="..." style={{height:"200px"}}/>
 					<div className="card-body">
-						<h2 className="card-title tw-font-bold tw-text-lg">{title.slice(0,50)}...</h2>
-						<span class="badge text-bg-danger rounded-pill tw-mb-2 tw-border-black">{source}</span>
+						<h2 className="card-title tw-font-bold tw-text-lg">{title}...</h2>
+						<span className="badge text-bg-danger rounded-pill tw-mb-2 tw-border-black">{source}</span>
 						<p className="card-text tw-mb-4">
-							{description.slice(0,100)}...
+							{description}...
 						</p>
 						<p className="card-text tw-mb-3"><small className="text-muted">By {author} on {new Date(date).toGMTString()}</small></p>
 						<a href={details} className="btn btn-sm btn-primary" rel="noreferrer" target="_blank">

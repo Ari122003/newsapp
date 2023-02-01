@@ -3,15 +3,18 @@ import Newsitem from "./Newsitem";
 import Spinner from "./Spinner";
 
 export class News extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.state = {
 			articles: [],
 			loading: false,
 			page: 1,
 			total: 0,
+			
 		};
+
+		document.title=`NewsHub:-${this.props.category}`
 	}
 
 	prev = async () => {
@@ -79,13 +82,16 @@ export class News extends Component {
 			`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=d13e0e481a19496791ca17302442872c&page=1&pageSize=6`
 		)
 			.then(function (data) {
+				
 				return data.json();
 			})
 			.then(function (result) {
+				console.log(result)
 				that.setState({
 					articles: result.articles,
 					total: result.totalResults,
 					loading: false,
+					
 				});
 			})
 	}
