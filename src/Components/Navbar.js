@@ -8,7 +8,7 @@ export class Navbar extends Component {
 	render() {
 		return (
 			<>
-				<nav className="navbar navbar-expand-lg bg-dark ">
+				<nav className="navbar fixed-top navbar-expand-lg bg-dark ">
 					<div className="container-fluid">
 						<h1 className="navbar-brand  text-white">NewsHUB</h1>
 						<button
