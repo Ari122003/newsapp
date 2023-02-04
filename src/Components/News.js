@@ -22,32 +22,31 @@ export class News extends Component {
 	}
 
 	update = async () => {
-		let that = this;
-
-		that.setState({ loading: true });
-         this.props.setprog(0)
+		this.setState({ loading: true });
+		this.props.setprog(10);
 		await fetch(
 			`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=d13e0e481a19496791ca17302442872c&page=${this.state.page}&pageSize=6`
 		)
-			.then(function (data) {
+			.then((data) => {
+				this.props.setprog(20)
 				return data.json();
 			})
-			.then(function (result) {
+			.then((result) => {
+				this.props.setprog(50)
 				console.log(result);
-				that.setState({
+				
+				this.setState({
 					articles: result.articles,
 					total: result.totalResults,
 					loading: false,
 				});
+				this.props.setprog(70)
 			});
 
-			this.props.setprog(100)
+		this.props.setprog(100);
 	};
 
-	
-
 	componentDidMount() {
-		
 		this.update();
 	}
 
