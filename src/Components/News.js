@@ -28,19 +28,19 @@ export class News extends Component {
 			`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=d13e0e481a19496791ca17302442872c&page=${this.state.page}&pageSize=6`
 		)
 			.then((data) => {
-				this.props.setprog(20)
+				this.props.setprog(20);
 				return data.json();
 			})
 			.then((result) => {
-				this.props.setprog(50)
+				this.props.setprog(50);
 				console.log(result);
-				
+
 				this.setState({
 					articles: result.articles,
 					total: result.totalResults,
 					loading: false,
 				});
-				this.props.setprog(70)
+				this.props.setprog(70);
 			});
 
 		this.props.setprog(100);
@@ -52,16 +52,24 @@ export class News extends Component {
 
 	fetchMoreData = async () => {
 		this.setState({
-			page: this.state.page + 1,
 			loading: true,
 		});
 
 		let that = this;
 
 		await fetch(
-			`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=d13e0e481a19496791ca17302442872c&page=${this.state.page}&pageSize=6`
+			`https://newsapi.org/v2/top-headlines?country=${
+				this.props.country
+			}&category=${
+				this.props.category
+			}&apiKey=d13e0e481a19496791ca17302442872c&page=${
+				this.state.page + 1
+			}&pageSize=6`
 		)
 			.then(function (data) {
+				that.setState({
+					page: this.state.page + 1,
+				});
 				return data.json();
 			})
 			.then(function (result) {
@@ -79,7 +87,8 @@ export class News extends Component {
 			<div className="container mt-5 mb-3">
 				<h2
 					className="mb-5 tw-text-4xl tw-font-bold tw-text-center"
-					id="heading">
+					id="heading"
+					style={{ marginTop: "3em" }}>
 					Top {this.capitaliser(this.props.category)} Headlines
 				</h2>
 
